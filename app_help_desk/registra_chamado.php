@@ -1,8 +1,6 @@
 <?php
-
-    echo '<pre>';
-    print_r($_POST);
-    echo '</pre>';
+    
+    session_start();
 
     //estamos trabalhando na montagem do texto
     $titulo = str_replace('#', '-', $_POST['titulo']);
@@ -10,7 +8,7 @@
     $descricao = str_replace('#', '-', $_POST['descricao']);
 
     //implode('#', $_POST);
-    $texto = $titulo . '#' . $categoria . '#' . $descricao . PHP_EOL;
+    $texto = $_SESSION['id'] . '#' . $titulo . '#' . $categoria . '#' . $descricao . PHP_EOL;
     //abrindo o arquivo 
     $arquivo = fopen('arquivo.hd', 'a');
     //escrevendo o texto
